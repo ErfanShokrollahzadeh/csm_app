@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <ShowLogo />
+    <Home />
     <CategoriesList :categories="categories" />
     <PostsList :posts="posts" />
   </div>
@@ -8,6 +10,8 @@
 <script>
 import CategoriesList from "@/components/CategoriesList.vue";
 import PostsList from "@/components/PostsList.vue";
+import Home from "@/components/HomeVue.vue";
+import ShowLogo from "./components/ShowLogo.vue";
 import api from "@/api";
 
 export default {
@@ -34,6 +38,8 @@ export default {
   components: {
     CategoriesList,
     PostsList,
+    Home,
+    ShowLogo,
   },
 };
 </script>
