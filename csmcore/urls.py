@@ -21,7 +21,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(('app.urls', 'app'), namespace='app')),
+    path('app/', include(('app.urls', 'app'), namespace='app')),
+    path('api/', include(('api.urls', 'api'), namespace='api')),
+    path('', include('mezzanine.urls')),
+
 ]
 
 if settings.DEBUG:
