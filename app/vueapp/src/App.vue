@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <ShowLogo />
-    <Home />
+    <!-- <Home />
     <CategoriesList :categories="categories" />
-    <PostsList :posts="posts" />
+    <PostsList :posts="posts" /> -->
   </div>
 </template>
 
 <script>
-import CategoriesList from "@/components/CategoriesList.vue";
-import PostsList from "@/components/PostsList.vue";
-import Home from "@/components/HomeVue.vue";
+// import CategoriesList from "@/components/CategoriesList.vue";
+// import PostsList from "@/components/PostsList.vue";
+// import Home from "@/components/HomeVue.vue";
 import ShowLogo from "./components/ShowLogo.vue";
 import api from "@/api";
 
@@ -36,9 +36,9 @@ export default {
     },
   },
   components: {
-    CategoriesList,
-    PostsList,
-    Home,
+    // CategoriesList,
+    // PostsList,
+    // Home,
     ShowLogo,
   },
 };

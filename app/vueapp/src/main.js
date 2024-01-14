@@ -4,4 +4,4 @@ import router from "./router";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 createApp(App).mount("#app");
-app.use(router);
+App.use(router);
