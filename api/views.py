@@ -6,7 +6,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser, IsAuthenticatedOrReadOnly
 from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework import generics
-from mezzanine.blog.models import BlogPost
+from mezzanine import blog
 from mezzanine.generic.models import ThreadedComment
 from django.db.models import Q
 
@@ -48,7 +48,7 @@ class BlogPostViewSet(viewsets.ModelViewSet):
     BlogPosts API endpoint.
     """
     # Filter to show only blogposts with 'published' status (in mezzanine published=2, draft=1), also filters out expired posts with Q objects
-    queryset = BlogPost.objects.filter(status=2).filter(
+    queryset = blog.objects.filter(status=2).filter(
         Q(expiry_date__gte=datetime.now()) | Q(expiry_date=None))
     serializer_class = BlogPostSerializer
     parser_classes = (MultiPartParser, FormParser, )

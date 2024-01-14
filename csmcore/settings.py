@@ -38,13 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "mezzanine.boot",
-    "mezzanine.conf",
-    "mezzanine.core",
-    "mezzanine.generic",
-    "mezzanine.pages",
-    "mezzanine.blog",
-    "mezzanine.forms",
     'rest_framework',
     'app.apps.AppConfig',
     'api.apps.ApiConfig',
@@ -160,11 +153,3 @@ REST_FRAMEWORK = {
         'user': '1000/day'
     }
 }
-
-
-try:
-    from mezzanine.utils.conf import set_dynamic_settings
-except ImportError:
-    pass
-else:
-    set_dynamic_settings(globals())
