@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'api.apps.ApiConfig',
-    'app.apps.AppConfig',
 ]
 
 MIDDLEWARE = [
@@ -117,10 +115,10 @@ USE_TZ = True
 
 # for media files (upload images from admin panel)
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Static files (CSS, JavaScript, Images)
@@ -137,18 +135,18 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
-    ),
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    ],
-    'DEFAULT_THROTTLE_CLASSES': ('rest_framework.throttling.AnonRateThrottle',
-                                 'rest_framework.throttling.UserRateThrottle'),
-    'DEFAULT_THROTTLE_RATES': {
-        'anon': '1000/day',
-        'user': '1000/day'
-    }
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework.authentication.BasicAuthentication',
+#         'rest_framework.authentication.TokenAuthentication',
+#     ),
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+#     ],
+#     'DEFAULT_THROTTLE_CLASSES': ('rest_framework.throttling.AnonRateThrottle',
+#                                  'rest_framework.throttling.UserRateThrottle'),
+#     'DEFAULT_THROTTLE_RATES': {
+#         'anon': '1000/day',
+#         'user': '1000/day'
+#     }
+# }
