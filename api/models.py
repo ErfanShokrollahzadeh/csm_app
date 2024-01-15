@@ -3,7 +3,7 @@ from django.db import models
 
 class Todo(models.Model):
     title = models.CharField(max_length=200)
-    desceiption = models.BooleanField(default=False)
+    desceiption = models.TextField(blank=True, null=True)
     priority = models.IntegerField(default=1)
     is_done = models.BooleanField(default=False)
 
