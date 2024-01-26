@@ -3,7 +3,8 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.all_todos, name='all_todos'),
-    path('<pk>', views.todo_detail_view, name='todo_detail_view'),
+    path('cbv/', views.TodosListApiView.as_view(), name='ManageTodoApiView'),
+    path('cbv/<int:pk>/', views.TodosDetailApiView.as_view(),
+         name='TodoDetailApiView'),
 
 ]
