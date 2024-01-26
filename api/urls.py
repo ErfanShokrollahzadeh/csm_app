@@ -3,9 +3,9 @@ from . import views
 
 
 urlpatterns = [
-    path('mixins/', views.TodosListMixinApiView.as_view(),
-         name='TodosListMixinApiView'),
-    path('mixins/<int:pk>/', views.TodosDetailsMixinApiView.as_view(),
-         name='TodosDetailMixinApiView'),
+    path('generics/', views.TodosGenericApiView.as_view(),
+         name='TodosGenericApiView'),
+    path('generics/<int:pk>/', views.TodosGenericDetailsApiView.as_view(),
+         name='TodosGenericDetailsApiView'),
 
 ]
