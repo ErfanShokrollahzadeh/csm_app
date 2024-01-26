@@ -14,16 +14,12 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
-# class TodosGenericApiView(generics.ListCreateAPIView):
-#     queryset = Todo.objects.all()
-#     serializer_class = TodoSerializer
+class TodosGenericApiView(generics.ListCreateAPIView):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
 
 
-# class TodosGenericDetailsApiView(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Todo.objects.all()
-#     serializer_class = TodoSerializer
-
-class TodosViewSetApiView(viewsets.ModelViewSet):
+class TodosGenericDetailsApiView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
 
