@@ -8,7 +8,10 @@ from rest_framework.views import APIView  # new *
 from rest_framework import generics, mixins  # new *
 from rest_framework import viewsets  # new * new
 from .models import Todo
-from .serializer import TodoSerializer
+from .serializer import TodoSerializer, UserSerializer
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 # class TodosGenericApiView(generics.ListCreateAPIView):
@@ -23,3 +26,8 @@ from .serializer import TodoSerializer
 class TodosViewSetApiView(viewsets.ModelViewSet):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
+
+
+class UserGenericApiView(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
