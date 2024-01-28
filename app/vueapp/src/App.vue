@@ -1,26 +1,53 @@
+<!-- در فایل App.vue -->
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <CategoriesList :categories="categories" />
+    <PostsList :posts="posts" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CategoriesList from "@/components/CategoriesList.vue";
+import PostsList from "@/components/PostsList.vue";
+import api from "@/api";
 
 export default {
-  name: 'App',
+  data() {
+    return {
+      categories: [],
+      posts: [],
+    };
+  },
+  mounted() {
+    this.fetchData();
+  },
+  methods: {
+    fetchData() {
+      api.getCategories().then((response) => {
+        this.categories = response.data;
+      });
+
+      api.getPosts().then((response) => {
+        this.posts = response.data;
+      });
+    },
+  },
   components: {
-    HelloWorld
-  }
-}
+    CategoriesList,
+    PostsList,
+  },
+};
 </script>
 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+h2 {
+  color: #35424a;
 }
 </style>
