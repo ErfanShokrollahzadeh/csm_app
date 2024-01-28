@@ -8,7 +8,7 @@ from rest_framework.views import APIView  # new *
 from rest_framework import generics, mixins  # new *
 from rest_framework import viewsets  # new * new
 from .models import Post, Category
-from .serializer import PostSerializer, UserSerializer
+from .serializer import PostSerializer, UserSerializer, CategorySerializer
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -22,6 +22,11 @@ class PostsGenericApiView(generics.ListCreateAPIView):
 class PostsGenericDetailsApiView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+
+class CategoryList(generics.ListCreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
 
 class UserGenericApiView(generics.ListAPIView):
