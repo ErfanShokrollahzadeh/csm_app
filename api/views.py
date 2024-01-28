@@ -7,21 +7,21 @@ from rest_framework.decorators import api_view  # new *
 from rest_framework.views import APIView  # new *
 from rest_framework import generics, mixins  # new *
 from rest_framework import viewsets  # new * new
-from .models import Todo
-from .serializer import TodoSerializer, UserSerializer
+from .models import Post, Category
+from .serializer import PostSerializer, UserSerializer
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
 
-class TodosGenericApiView(generics.ListCreateAPIView):
-    queryset = Todo.objects.all()
-    serializer_class = TodoSerializer
+class PostsGenericApiView(generics.ListCreateAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
 
 
-class TodosGenericDetailsApiView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Todo.objects.all()
-    serializer_class = TodoSerializer
+class PostsGenericDetailsApiView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
 
 
 class UserGenericApiView(generics.ListAPIView):

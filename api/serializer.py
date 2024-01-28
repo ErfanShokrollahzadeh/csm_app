@@ -1,18 +1,18 @@
 from rest_framework import serializers
-from .models import Todo
+from .models import Post
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
 
-class TodoSerializer(serializers.ModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Todo
+        model = Post
         fields = '__all__'
 
 
 class UserSerializer(serializers.ModelSerializer):
-    todos = TodoSerializer(many=True, read_only=True)
+    Posts = PostSerializer(many=True, read_only=True)
 
     class Meta:
         model = User

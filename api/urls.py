@@ -3,7 +3,7 @@ from . import views
 
 
 urlpatterns = [
-    path('generics/', views.TodosGenericApiView.as_view()),
-    path('generics/<int:pk>/', views.TodosGenericDetailsApiView.as_view()),
+    path('posts/', views.PostsGenericApiView.as_view()),
+    path('posts/<int:pk>/', views.PostsGenericDetailsApiView.as_view()),
     path('users/', views.UserGenericApiView.as_view(), name='UserGenericApiView'),
 ]
