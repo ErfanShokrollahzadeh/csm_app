@@ -22,11 +22,25 @@
     </ul>
     <p v-if="error" class="error">{{ error }}</p>
   </div>
+  <div class="navigation">
+    <!-- Dots -->
+    <div class="dots">
+      <span
+        v-for="(item, index) in [0, 1, 2]"
+        :key="index"
+        :class="{ active: currentSlide === index }"
+      ></span>
+    </div>
+
+    <!-- Next button -->
+    <button @click="next">Next</button>
+  </div>
 </template>
 
 <script>
 // import api from "@/api";
 import axios from "axios";
+import { useRouter } from "vue-router";
 
 export default {
   data() {
@@ -35,6 +49,10 @@ export default {
       //   posts: [],
       Onbording: [],
     };
+  },
+  setup() {
+    const router = useRouter();
+    return { router };
   },
   async created() {
     try {
@@ -56,5 +74,35 @@ export default {
       console.error(error);
     }
   },
+  async next() {
+    if (this.currentSlide < 2) {
+      // If it's not the last slide, go to the next slide
+      this.currentSlide++;
+    } else {
+      // If it's the last slide, redirect to the login page
+      this.router.push("/login");
+    }
+  },
 };
 </script>
+
+<style scoped>
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.dots span {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dots span.active {
+  background-color: #717171;
+}
+</style>
