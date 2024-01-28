@@ -1,4 +1,3 @@
-// در فایل مربوط به Component مورد نظر (مثلاً Home.vue)
 <template>
   <div>
     <h1>Categories</h1>
@@ -10,13 +9,16 @@
 
     <h1>Posts</h1>
     <ul>
-      <li v-for="post in posts" :key="post.id">{{ post.title }}</li>
+      <li v-for="post in posts" :key="post.id">
+        {{ post.title }}
+      </li>
     </ul>
+    <p v-if="error" class="error">{{ error }}</p>
   </div>
 </template>
 
 <script>
-import api from "@/api";
+// import api from "@/api";
 import axios from "axios";
 
 export default {
@@ -26,22 +28,20 @@ export default {
       posts: [],
     };
   },
-  mounted() {
-    // در هنگام لود شدن Component، داده‌ها را از API درخواست کنید
-    this.fetchData();
-  },
-  methods: {
-    async fetchData() {
-      try {
-        const response = await axios.all([api.getCategories(), api.getPosts()]);
-        this.categories = response[0].data;
-        this.posts = response[1].data;
-      } catch (error) {
-        console.log(error);
-      } finally {
-        console.log("Done");
-      }
-    },
+  async created() {
+    try {
+      const responsePosts = await axios.get("http://127.0.0.1:8000/api/posts/");
+      this.posts = responsePosts.data;
+
+      const responseCategories = await axios.get(
+        "http://127.0.0.1:8000/api/categories/"
+      );
+      this.categories = responseCategories.data;
+    } catch (error) {
+      this.error =
+        "There was an error fetching the data. Please try again later.";
+      console.error(error);
+    }
   },
 };
 </script>
