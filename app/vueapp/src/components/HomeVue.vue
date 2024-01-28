@@ -1,13 +1,6 @@
 <template>
   <div>
-    <!-- <h1>Categories</h1>
-    <ul>
-      <li v-for="category in categories" :key="category.id">
-        {{ category.name }}
-      </li>
-    </ul> -->
-
-    <h1>Posts</h1>
+    <!-- <h1>Posts</h1>
     <ul>
       <li v-for="post in posts" :key="post.id">
         <img />{{ post.image }}
@@ -15,6 +8,16 @@
         <p>{{ post.content }}</p>
         <p>{{ post.category }}</p>
         <p>{{ post.user }}</p>
+      </li>
+    </ul>
+    <p v-if="error" class="error">{{ error }}</p> -->
+
+    <h1>Onbording</h1>
+    <ul>
+      <li v-for="item in Onbording" :key="item.id">
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.discriptions }}</p>
+        <img />{{ item.image }}
       </li>
     </ul>
     <p v-if="error" class="error">{{ error }}</p>
@@ -28,14 +31,20 @@ import axios from "axios";
 export default {
   data() {
     return {
-      categories: [],
-      posts: [],
+      //   categories: [],
+      //   posts: [],
+      Onbording: [],
     };
   },
   async created() {
     try {
-      const responsePosts = await axios.get("http://127.0.0.1:8000/api/posts/");
-      this.posts = responsePosts.data;
+      //   const responsePosts = await axios.get("http://127.0.0.1:8000/api/posts/");
+      //   this.posts = responsePosts.data;
+
+      const responseOnbording = await axios.get(
+        "http://127.0.0.1:8000/api/Onbording/"
+      );
+      this.Onbording = responseOnbording.data;
 
       //   const responseCategories = await axios.get(
       //     "http://127.0.0.1:8000/api/categories/"

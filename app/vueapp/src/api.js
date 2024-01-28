@@ -9,6 +9,9 @@ const apiClient = axios.create({
 });
 
 export default {
+  getOnbording() {
+    return apiClient.get("Onbording/");
+  },
   getPosts() {
     return apiClient.get("posts/");
   },
