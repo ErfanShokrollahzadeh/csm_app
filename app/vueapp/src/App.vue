@@ -1,40 +1,27 @@
-<!-- در فایل App.vue -->
+<!-- App.vue -->
 <template>
   <div id="app">
-    <CategoriesList :categories="categories" />
-    <PostsList :posts="posts" />
+    <div v-if="showLogo">
+      <img src="@/assets/Vector.svg" alt="Logo" />
+    </div>
+    <div v-else>
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
-import CategoriesList from "@/components/CategoriesList.vue";
-import PostsList from "@/components/PostsList.vue";
-import api from "@/api";
-
 export default {
   data() {
     return {
-      categories: [],
-      posts: [],
+      showLogo: true,
     };
   },
-  mounted() {
-    this.fetchData();
-  },
-  methods: {
-    fetchData() {
-      api.getCategories().then((response) => {
-        this.categories = response.data;
-      });
-
-      api.getPosts().then((response) => {
-        this.posts = response.data;
-      });
-    },
-  },
-  components: {
-    CategoriesList,
-    PostsList,
+  created() {
+    // Hide the logo after 3 seconds
+    setTimeout(() => {
+      this.showLogo = false;
+    }, 3000);
   },
 };
 </script>
@@ -47,7 +34,10 @@ export default {
   margin-top: 60px;
 }
 
-h2 {
-  color: #35424a;
+img {
+  max-width: 100%;
+  max-height: 100%;
 }
+
+/* Additional styles as needed */
 </style>

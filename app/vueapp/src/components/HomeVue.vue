@@ -17,6 +17,7 @@
 
 <script>
 import api from "@/api";
+import axios from "axios";
 
 export default {
   data() {
@@ -30,14 +31,16 @@ export default {
     this.fetchData();
   },
   methods: {
-    fetchData() {
-      api.getCategories().then((response) => {
-        this.categories = response.data;
-      });
-
-      api.getPosts().then((response) => {
-        this.posts = response.data;
-      });
+    async fetchData() {
+      try {
+        const response = await axios.all([api.getCategories(), api.getPosts()]);
+        this.categories = response[0].data;
+        this.posts = response[1].data;
+      } catch (error) {
+        console.log(error);
+      } finally {
+        console.log("Done");
+      }
     },
   },
 };
