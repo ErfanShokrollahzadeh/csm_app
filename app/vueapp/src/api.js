@@ -9,10 +9,10 @@ const apiClient = axios.create({
 });
 
 export default {
-  getCategories() {
-    return apiClient.get("categories/");
-  },
   getPosts() {
     return apiClient.get("posts/");
+  },
+  getCategories() {
+    return apiClient.get("categories/");
   },
 };

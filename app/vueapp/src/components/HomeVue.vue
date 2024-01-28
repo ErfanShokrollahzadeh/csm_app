@@ -1,16 +1,20 @@
 <template>
   <div>
-    <h1>Categories</h1>
+    <!-- <h1>Categories</h1>
     <ul>
       <li v-for="category in categories" :key="category.id">
         {{ category.name }}
       </li>
-    </ul>
+    </ul> -->
 
     <h1>Posts</h1>
     <ul>
       <li v-for="post in posts" :key="post.id">
-        {{ post.title }}
+        <img />{{ post.image }}
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+        <p>{{ post.category }}</p>
+        <p>{{ post.user }}</p>
       </li>
     </ul>
     <p v-if="error" class="error">{{ error }}</p>
@@ -33,10 +37,10 @@ export default {
       const responsePosts = await axios.get("http://127.0.0.1:8000/api/posts/");
       this.posts = responsePosts.data;
 
-      const responseCategories = await axios.get(
-        "http://127.0.0.1:8000/api/categories/"
-      );
-      this.categories = responseCategories.data;
+      //   const responseCategories = await axios.get(
+      //     "http://127.0.0.1:8000/api/categories/"
+      //   );
+      //   this.categories = responseCategories.data;
     } catch (error) {
       this.error =
         "There was an error fetching the data. Please try again later.";
