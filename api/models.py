@@ -21,6 +21,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
     user = models.ForeignKey(
         user, on_delete=models.CASCADE, related_name='Posts', null=True, blank=True)
 
