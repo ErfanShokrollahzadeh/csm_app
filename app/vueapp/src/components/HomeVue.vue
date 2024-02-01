@@ -14,26 +14,32 @@
 
     <h1>Onbording</h1>
     <ul>
-      <li v-for="item in Onbording" :key="item.id">
-        <h2>{{ item.title }}</h2>
-        <p>{{ item.discriptions }}</p>
-        <img />{{ item.image }}
+      <li v-if="Onbording.length">
+        <h2>{{ Onbording[currentSlide].title }}</h2>
+        <p>{{ Onbording[currentSlide].discriptions }}</p>
+        <img :src="Onbording[currentSlide].image" alt="Onbording image" />
       </li>
     </ul>
     <p v-if="error" class="error">{{ error }}</p>
   </div>
+
   <div class="navigation">
-    <!-- Dots -->
+    <!-- slide -->
     <div class="dots">
       <span
-        v-for="(item, index) in [0, 1, 2]"
+        v-for="(dot, index) in [1, 2, 3]"
         :key="index"
         :class="{ active: currentSlide === index }"
       ></span>
     </div>
 
     <!-- Next button -->
-    <button @click="next">Next</button>
+    <a href="#" @click.prevent="back" :class="{ disabled: currentSlide === 0 }"
+      >Back</a
+    >
+    <button @click="next" :disabled="currentSlide === Onbording.length - 1">
+      {{ nextButtonText }}
+    </button>
   </div>
 </template>
 
@@ -48,21 +54,25 @@ export default {
       //   categories: [],
       //   posts: [],
       Onbording: [],
+      currentSlide: 0,
     };
+  },
+  computed: {
+    nextButtonText() {
+      return this.currentSlide < 2 ? "Next" : "Get Started";
+    },
   },
   setup() {
     const router = useRouter();
     return { router };
   },
-  async created() {
+  async mounted() {
     try {
       //   const responsePosts = await axios.get("http://127.0.0.1:8000/api/posts/");
       //   this.posts = responsePosts.data;
 
-      const responseOnbording = await axios.get(
-        "http://127.0.0.1:8000/api/Onbording/"
-      );
-      this.Onbording = responseOnbording.data;
+      const response = await axios.get("http://127.0.0.1:8000/api/Onbording/");
+      this.Onbording = response.data;
 
       //   const responseCategories = await axios.get(
       //     "http://127.0.0.1:8000/api/categories/"
@@ -74,14 +84,12 @@ export default {
       console.error(error);
     }
   },
-  async next() {
-    if (this.currentSlide < 2) {
-      // If it's not the last slide, go to the next slide
-      this.currentSlide++;
-    } else {
-      // If it's the last slide, redirect to the login page
-      this.router.push("/login");
-    }
+  methods: {
+    next() {
+      if (this.currentSlide < this.Onbording.length - 1) {
+        this.currentSlide++;
+      }
+    },
   },
 };
 </script>
@@ -90,19 +98,35 @@ export default {
 .dots {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .dots span {
   height: 10px;
   width: 10px;
   margin: 0 5px;
-  background-color: #bbb;
+  background-color: #a0a3bd;
   border-radius: 50%;
   display: inline-block;
 }
 
 .dots span.active {
-  background-color: #717171;
+  background-color: #1877f2;
+}
+
+a {
+  color: #bbb;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 0.5rem;
+}
+
+button {
+  background-color: #1877f2;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
 }
 </style>
