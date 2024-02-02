@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import OnbordingVue from "@/components/OnbordingVue.vue";
+import OnbordingVue from "@/components/Onbording/OnbordingVue.vue";
 
 const routes = [
   {

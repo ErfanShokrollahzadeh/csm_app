@@ -1,0 +1,35 @@
+.description-block {
+  display: block;
+}
+
+.description-none {
+  display: none;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-right: 10rem;
+}
+
+.dots span {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #a0a3bd;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dots span.active {
+  background-color: #1877f2;
+}
+
+.scrollable {
+  height: 100vh;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
