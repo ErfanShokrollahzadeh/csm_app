@@ -29,6 +29,78 @@
       {{ nextButtonText }}
     </button>
   </div>
+  <hr />
+
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div v-for="item in items" :key="item.id">
+        <div class="carousel-item active">
+          <img :src="item.image" class="d-block" alt="Onbording image" />
+        </div>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <hr />
+
+  <div>
+    <div class="dots">
+      <span
+        v-for="(dot, index) in [1, 2, 3]"
+        :key="index"
+        :class="{ active: currentSlide === index }"
+      ></span>
+    </div>
+
+    <button
+      class="btn btn-danger"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next"
+      @click="next"
+      :disabled="currentSlide === Onbording.length - 1"
+    >
+      {{ nextButtonText }}
+    </button>
+  </div>
 </template>
 
 <script>
@@ -57,7 +129,7 @@ export default {
   },
   methods: {
     next() {
-      if (this.currentSlide < this.Onbording.length - 1) {
+      if (this.currentSlide < this.items.length - 1) {
         this.currentSlide++;
       }
     },
@@ -71,12 +143,12 @@ export default {
 </script>
 
 <style scoped>
-.navigation {
+/* .navigation {
   display: flex;
   justify-content: center;
   align-items: baseline;
   margin-top: 3rem;
-}
+} */
 
 .dots {
   display: flex;
@@ -97,19 +169,19 @@ export default {
   background-color: #1877f2;
 }
 
-a {
+/* a {
   color: #bbb;
   cursor: pointer;
   text-decoration: none;
   margin-right: 0.5rem;
-}
+} */
 
-button {
+/* button {
   background-color: #1877f2;
   border: none;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
   padding: 0.5rem 1rem;
-}
+} */
 </style>
