@@ -95,10 +95,17 @@ export default {
 </script>
 
 <style scoped>
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-top: 3rem;
+}
+
 .dots {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-right: 12rem;
 }
 
 .dots span {
