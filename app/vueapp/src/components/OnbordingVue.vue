@@ -5,6 +5,7 @@
       <h2>{{ item.title }}</h2>
       <p>{{ item.discriptions }}</p>
       <img :src="item.image" alt="Onbording image" />
+      <!-- <p>{{ item.image }}</p> -->
     </div>
 
     <p v-if="error" class="error">{{ error }}</p>
@@ -31,9 +32,7 @@
 </template>
 
 <script>
-// import api from "@/api";
-import axios from "axios";
-import { useRouter } from "vue-router";
+import api from "@/api"; // Adjust the path according to your project structure
 
 export default {
   data() {
@@ -48,13 +47,9 @@ export default {
       return this.currentSlide < 2 ? "Next" : "Get Started";
     },
   },
-  setup() {
-    const router = useRouter();
-    return { router };
-  },
   async created() {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/api/Onbording/");
+      const response = await api.getOnbording();
       this.items = response.data;
     } catch (error) {
       console.error(error);

@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: "http://127.0.0.1:8000/", // Address API Django
+  baseURL: "http://127.0.0.1:8000/api/", // Address API Django
   headers: {
     "Content-Type": "application/json",
   },
@@ -10,7 +10,7 @@ const apiClient = axios.create({
 
 export default {
   getOnbording() {
-    return apiClient.get("Onbording/");
+    return apiClient.get("onbording/");
   },
   getPosts() {
     return apiClient.get("posts/");
