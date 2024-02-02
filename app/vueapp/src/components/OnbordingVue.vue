@@ -1,34 +1,4 @@
 <template>
-  <!-- <div>
-    <h1>Onbording</h1>
-    <div v-for="item in items" :key="item.id">
-      <h2>{{ item.title }}</h2>
-      <p>{{ item.discriptions }}</p>
-      <img :src="item.image" alt="Onbording image" />
-    </div>
-
-    <p v-if="error" class="error">{{ error }}</p>
-  </div> -->
-
-  <div class="navigation">
-    <div class="dots">
-      <span
-        v-for="(dot, index) in [1, 2, 3]"
-        :key="index"
-        :class="{ active: currentSlide === index }"
-      ></span>
-    </div>
-
-    <!-- Next button -->
-    <a href="#" @click.prevent="back" :class="{ disabled: currentSlide === 0 }"
-      >Back</a
-    >
-    <button @click="next" :disabled="currentSlide === Onbording.length - 1">
-      {{ nextButtonText }}
-    </button>
-  </div>
-  <hr />
-
   <div id="carouselExampleIndicators" class="carousel slide">
     <div class="carousel-indicators">
       <button
@@ -54,31 +24,27 @@
     </div>
     <div class="carousel-inner">
       <div v-for="item in items" :key="item.id">
-        <div class="carousel-item active">
+        <div
+          :class="
+            item.id === currentIndex ? 'carousel-item active' : 'carousel-item'
+          "
+        >
           <img :src="item.image" class="d-block" alt="Onbording image" />
         </div>
       </div>
     </div>
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide="prev"
-    >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide="next"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
-  <hr />
+
+  <div v-for="item in items" :key="item.id">
+    <div
+      :class="
+        item.id === currentIndex ? 'description-block' : 'description-none'
+      "
+    >
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.discriptions }}</p>
+    </div>
+  </div>
 
   <div>
     <div class="dots">
@@ -98,6 +64,14 @@
     >
       {{ nextButtonText }}
     </button>
+    <button
+      @click.prevent="back"
+      :class="{ disabled: currentSlide === 0 }"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev"
+    >
+      Back
+    </button>
   </div>
 </template>
 
@@ -109,6 +83,7 @@ export default {
     return {
       Onbording: [],
       currentSlide: 0,
+      currentIndex: 1,
       items: [],
     };
   },
@@ -129,11 +104,13 @@ export default {
     next() {
       if (this.currentSlide < this.items.length - 1) {
         this.currentSlide++;
+        this.currentIndex++;
       }
     },
     back() {
       if (this.currentSlide > 0) {
         this.currentSlide--;
+        this.currentIndex--;
       }
     },
   },
@@ -141,12 +118,13 @@ export default {
 </script>
 
 <style scoped>
-/* .navigation {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  margin-top: 3rem;
-} */
+.description-block {
+  display: block;
+}
+
+.description-none {
+  display: none;
+}
 
 .dots {
   display: flex;
@@ -166,20 +144,4 @@ export default {
 .dots span.active {
   background-color: #1877f2;
 }
-
-/* a {
-  color: #bbb;
-  cursor: pointer;
-  text-decoration: none;
-  margin-right: 0.5rem;
-} */
-
-/* button {
-  background-color: #1877f2;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-} */
 </style>

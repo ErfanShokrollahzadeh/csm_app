@@ -19,6 +19,11 @@ class OnbordingGenericApiView(generics.ListCreateAPIView):
     serializer_class = OnbordingSerializer
 
 
+class OnbordingGenericDetailsApiView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Onbording.objects.all()
+    serializer_class = OnbordingSerializer
+
+
 class PostsGenericApiView(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
