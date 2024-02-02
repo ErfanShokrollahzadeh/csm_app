@@ -37,6 +37,7 @@ export default {
 img {
   max-width: 100%;
   max-height: 100%;
+  margin-top: 200px;
 }
 
 /* Additional styles as needed */
