@@ -1,18 +1,16 @@
 <template>
-  <div>
+  <!-- <div>
     <h1>Onbording</h1>
     <div v-for="item in items" :key="item.id">
       <h2>{{ item.title }}</h2>
       <p>{{ item.discriptions }}</p>
       <img :src="item.image" alt="Onbording image" />
-      <!-- <p>{{ item.image }}</p> -->
     </div>
 
     <p v-if="error" class="error">{{ error }}</p>
-  </div>
+  </div> -->
 
   <div class="navigation">
-    <!-- slide -->
     <div class="dots">
       <span
         v-for="(dot, index) in [1, 2, 3]"
