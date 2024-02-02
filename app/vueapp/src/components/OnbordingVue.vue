@@ -1,13 +1,12 @@
 <template>
   <div>
     <h1>Onbording</h1>
-    <ul>
-      <li v-if="Onbording.length">
-        <h2>{{ Onbording[currentSlide].title }}</h2>
-        <p>{{ Onbording[currentSlide].discriptions }}</p>
-        <img :src="Onbording[currentSlide].image" alt="Onbording image" />
-      </li>
-    </ul>
+    <div v-for="item in items" :key="item.id">
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.discriptions }}</p>
+      <img :src="item.image" alt="Onbording image" />
+    </div>
+
     <p v-if="error" class="error">{{ error }}</p>
   </div>
 
@@ -41,6 +40,7 @@ export default {
     return {
       Onbording: [],
       currentSlide: 0,
+      items: [],
     };
   },
   computed: {
@@ -52,13 +52,11 @@ export default {
     const router = useRouter();
     return { router };
   },
-  async mounted() {
+  async created() {
     try {
       const response = await axios.get("http://127.0.0.1:8000/api/Onbording/");
-      this.Onbording = response.data;
+      this.items = response.data;
     } catch (error) {
-      this.error =
-        "There was an error fetching the data. Please try again later.";
       console.error(error);
     }
   },
@@ -66,6 +64,11 @@ export default {
     next() {
       if (this.currentSlide < this.Onbording.length - 1) {
         this.currentSlide++;
+      }
+    },
+    back() {
+      if (this.currentSlide > 0) {
+        this.currentSlide--;
       }
     },
   },
