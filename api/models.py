@@ -1,8 +1,4 @@
 from django.db import models
-from django.contrib.auth import get_user_model
-
-
-user = get_user_model()
 
 
 class Category(models.Model):
@@ -22,8 +18,6 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
-    user = models.ForeignKey(
-        user, on_delete=models.CASCADE, related_name='Posts', null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -42,3 +36,18 @@ class Onbording(models.Model):
 
     class Meta:
         verbose_name_plural = 'Onbording info'
+
+
+class Register(models.Model):
+    username = models.CharField(max_length=200, unique=True)
+    password = models.CharField(max_length=200)
+    phone_number = models.CharField(max_length=200, unique=True)
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.username
+
+    class Meta:
+        verbose_name_plural = 'Register info'
