@@ -42,7 +42,7 @@ class Register(models.Model):
     username = models.CharField(max_length=200, unique=True)
     password = models.CharField(max_length=200)
     phone_number = models.CharField(max_length=200, unique=True)
-    image = models.ImageField(upload_to='images/', null=True, blank=True)
+    # image = models.ImageField(upload_to='images/', null=True, blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
