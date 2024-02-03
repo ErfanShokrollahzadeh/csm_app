@@ -27,6 +27,8 @@ export default {
       if (this.currentSlide < this.items.length - 1) {
         this.currentSlide++;
         this.currentIndex++;
+      } else {
+        this.$router.push("/login");
       }
     },
     back() {
@@ -35,5 +37,10 @@ export default {
         this.currentIndex--;
       }
     },
+  },
+  beforeMount() {
+    if (this.$route.path === "/login") {
+      this.$router.push("/onboarding");
+    }
   },
 };

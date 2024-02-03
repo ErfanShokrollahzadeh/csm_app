@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import OnbordingVue from "@/components/Onbording/OnbordingVue.vue";
+import LogInVue from "@/components/Login/LogInVue.vue";
 
 const routes = [
   {
@@ -7,7 +8,11 @@ const routes = [
     name: "Onbording",
     component: OnbordingVue,
   },
-  // Add more routes as needed
+  {
+    path: "/login",
+    name: "LogIn",
+    component: LogInVue,
+  },
 ];
 
 const router = createRouter({
