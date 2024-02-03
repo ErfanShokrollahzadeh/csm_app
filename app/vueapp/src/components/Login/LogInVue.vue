@@ -1,113 +1,144 @@
 <template>
-  <h1>Hello</h1>
-  <h1>Again!</h1>
-  <p>Welcome back you’ve been missed</p>
-  <form class="row g-3">
-    <div class="col-md-4">
-      <label for="validationServer01" class="form-label">First name</label>
-      <input
-        type="text"
-        class="form-control is-valid"
-        id="validationServer01"
-        value="Mark"
-        required
-      />
-      <div class="valid-feedback">Looks good!</div>
-    </div>
-    <div class="col-md-4">
-      <label for="validationServer02" class="form-label">Last name</label>
-      <input
-        type="text"
-        class="form-control is-valid"
-        id="validationServer02"
-        value="Otto"
-        required
-      />
-      <div class="valid-feedback">Looks good!</div>
-    </div>
-    <div class="col-md-4">
-      <label for="validationServerUsername" class="form-label">Username</label>
-      <div class="input-group has-validation">
-        <span class="input-group-text" id="inputGroupPrepend3">@</span>
-        <input
-          type="text"
-          class="form-control is-invalid"
-          id="validationServerUsername"
-          aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback"
-          required
-        />
-        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-          Please choose a username.
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <label for="validationServer03" class="form-label">City</label>
-      <input
-        type="text"
-        class="form-control is-invalid"
-        id="validationServer03"
-        aria-describedby="validationServer03Feedback"
-        required
-      />
-      <div id="validationServer03Feedback" class="invalid-feedback">
-        Please provide a valid city.
-      </div>
-    </div>
-    <div class="col-md-3">
-      <label for="validationServer04" class="form-label">State</label>
-      <select
-        class="form-select is-invalid"
-        id="validationServer04"
-        aria-describedby="validationServer04Feedback"
-        required
+  <div class="title">
+    <h1>
+      Hello <br />
+      <span>Again!</span>
+    </h1>
+    <p>
+      Welcome back you’ve <br />
+      been missed
+    </p>
+  </div>
+
+  <form class="register">
+    <div class="mb-3">
+      <label for="exampleInputText" class="form-label"
+        >username<span class="star">*</span></label
       >
-        <option selected disabled value="">Choose...</option>
-        <option>...</option>
-      </select>
-      <div id="validationServer04Feedback" class="invalid-feedback">
-        Please select a valid state.
-      </div>
-    </div>
-    <div class="col-md-3">
-      <label for="validationServer05" class="form-label">Zip</label>
       <input
         type="text"
-        class="form-control is-invalid"
-        id="validationServer05"
-        aria-describedby="validationServer05Feedback"
+        class="form-control border-black"
+        id="exampleInputText"
+        aria-describedby="textHelp"
         required
       />
-      <div id="validationServer05Feedback" class="invalid-feedback">
-        Please provide a valid zip.
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword" class="form-label"
+        >Password<span class="star">*</span></label
+      >
+      <input
+        :type="passwordFieldType"
+        class="form-control border-black"
+        id="exampleInputPassword1"
+        required
+      />
+      <span class="password-toggle-icon"><i class="fas fa-eye"></i></span>
+      <span
+        ><i :class="`fa fa-eye${passwordVisible ? '-slash' : ''}`"></i
+      ></span>
+    </div>
+
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+      <label class="form-check-label" for="exampleCheck1">Remmember me</label>
+      <a href="#" class="forgot">Forgot the password ?</a>
+      <div class="password-toggle-icon">
+        <i :class="`bi ${passwordVisible ? 'bi-eye-slash' : 'bi-eye'}`"></i>
       </div>
     </div>
-    <div class="col-12">
-      <div class="form-check">
-        <input
-          class="form-check-input is-invalid"
-          type="checkbox"
-          value=""
-          id="invalidCheck3"
-          aria-describedby="invalidCheck3Feedback"
-          required
-        />
-        <label class="form-check-label" for="invalidCheck3">
-          Agree to terms and conditions
-        </label>
-        <div id="invalidCheck3Feedback" class="invalid-feedback">
-          You must agree before submitting.
-        </div>
-      </div>
+    <button type="submit" class="btn btn-primary btnlogin">Login</button>
+
+    <p class="firstp">or continue with</p>
+
+    <div class="facgoogle">
+      <button class="btn btnfacebook" type="submit">
+        <i class="fab fa-facebook-f"></i> Facebook
+      </button>
+      <button class="btn btngoogle">
+        <i class="fab fa-google"></i> Google
+      </button>
     </div>
-    <div class="col-12">
-      <button class="btn btn-primary" type="submit">Submit form</button>
-    </div>
+    <p class="secondp">
+      don’t have an account ?<a style="color: #1877f2">Sign Up</a>
+    </p>
   </form>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      passwordVisible: false,
+    };
+  },
+  //   computed: {
+  //     passwordFieldType() {
+  //       return this.passwordVisible ? "text" : "password";
+  //     },
+  //   },
+  methods: {
+    togglePasswordVisibility() {
+      this.passwordVisible = !this.passwordVisible;
+    },
+  },
+};
 </script>
 
-<style scoped></style>
+<style scoped>
+.title {
+  padding: 24px;
+}
+h1 {
+  font-weight: revert;
+  font-size: xxx-large;
+}
+h1 span {
+  color: blue;
+}
+.star {
+  color: red;
+}
+.register {
+  padding: 24px;
+}
+.btnlogin {
+  width: 100%;
+}
+.forgot {
+  float: right;
+  text-decoration: none;
+}
+.firstp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  color: #4e4b66;
+}
+.secondp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  color: #4e4b66;
+}
+.facgoogle {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+}
+.btnfacebook {
+  width: 45%;
+  height: 45px;
+  background: #e5ecf4;
+  color: #667080;
+}
+.btngoogle {
+  width: 45%;
+  height: 45px;
+  background: #e5ecf4;
+  color: #667080;
+}
+</style>
