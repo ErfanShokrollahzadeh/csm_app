@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="controls">
       <div class="dots">
         <span
           v-for="(dot, index) in [1, 2, 3]"
@@ -41,6 +41,7 @@
       </div>
 
       <button
+        class="btnback"
         @click.prevent="back"
         :class="{ disabled: currentSlide === 0 }"
         data-bs-target="#carouselExampleIndicators"
@@ -49,7 +50,7 @@
         Back
       </button>
       <button
-        class="btn btn-danger"
+        class="btn btn-primary"
         data-bs-target="#carouselExampleIndicators"
         data-bs-slide="next"
         @click="next"
