@@ -60,7 +60,7 @@
       </button>
     </div>
     <p class="secondp">
-      don’t have an account ?<a style="color: #1877f2">Sign Up</a>
+      don’t have an account ?<a class="signuplink">Sign Up</a>
     </p>
   </form>
 </template>
@@ -140,5 +140,10 @@ h1 span {
   height: 45px;
   background: #e5ecf4;
   color: #667080;
+}
+.signuplink {
+  color: #1877f2;
+  margin-left: 5px;
+  text-decoration: none;
 }
 </style>
