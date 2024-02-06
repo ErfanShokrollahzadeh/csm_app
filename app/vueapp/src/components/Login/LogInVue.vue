@@ -60,7 +60,7 @@
       </button>
     </div>
     <p class="secondp">
-      don’t have an account ?<a class="signuplink">Sign Up</a>
+      don’t have an account ?<a href="#" class="signuplink">Sign Up</a>
     </p>
   </form>
 </template>
