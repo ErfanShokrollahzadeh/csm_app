@@ -63,82 +63,12 @@
 </template>
 
 <script>
+import SignUp from "./SignUpVue.js";
+
 export default {
-  data() {
-    return {
-      passwordVisible: false,
-    };
-  },
-  //   computed: {
-  //     passwordFieldType() {
-  //       return this.passwordVisible ? "text" : "password";
-  //     },
-  //   },
-  methods: {
-    togglePasswordVisibility() {
-      this.passwordVisible = !this.passwordVisible;
-    },
-  },
+  name: "SignUpVue",
+  ...SignUp,
 };
 </script>
 
-<style scoped>
-.title {
-  padding: 24px;
-}
-h1 {
-  font-weight: 900;
-  font-size: xxx-large;
-  color: #1877f2;
-}
-.star {
-  color: red;
-}
-.register {
-  padding: 24px;
-}
-.btnlogin {
-  width: 100%;
-}
-.forgot {
-  float: right;
-  text-decoration: none;
-}
-.firstp {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  color: #4e4b66;
-}
-.secondp {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  color: #4e4b66;
-}
-.facgoogle {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 10px;
-}
-.btnfacebook {
-  width: 45%;
-  height: 45px;
-  background: #e5ecf4;
-  color: #667080;
-}
-.btngoogle {
-  width: 45%;
-  height: 45px;
-  background: #e5ecf4;
-  color: #667080;
-}
-.signuplink {
-  color: #1877f2;
-  margin-left: 5px;
-  text-decoration: none;
-}
-</style>
+<style scoped src="./SignUpVue.css"></style>
