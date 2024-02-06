@@ -17,10 +17,6 @@ h1 span {
 .btnlogin {
   width: 100%;
 }
-.forgot {
-  float: right;
-  text-decoration: none;
-}
 .firstp {
   display: flex;
   justify-content: center;
@@ -57,4 +53,34 @@ h1 span {
   color: #1877f2;
   margin-left: 5px;
   text-decoration: none;
+}
+.fogotpass {
+  color: #1877f2;
+  float: right;
+  text-decoration: none;
+}
+.pass_show {
+  position: relative;
+}
+
+.pass_show .ptxt {
+  position: absolute;
+
+  top: 50%;
+
+  right: 10px;
+
+  z-index: 1;
+
+  color: #f36c01;
+
+  margin-top: -10px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease all;
+}
+
+.pass_show .ptxt:hover {
+  color: #333333;
 }

@@ -27,18 +27,19 @@
         id="exampleInputPassword1"
         required
       />
-      <span class="password-toggle-icon"><i class="fas fa-eye"></i></span>
-      <span
-        ><i :class="`fa fa-eye${passwordVisible ? '-slash' : ''}`"></i
-      ></span>
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          @click="togglePasswordVisibility"
+        >
+          <i :class="`fa ${passwordVisible ? 'fa-eye-slash' : 'fa-eye'}`"></i>
+        </button>
+      </div>
     </div>
-
     <div class="mb-3 form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1" />
       <label class="form-check-label" for="exampleCheck1">Remmember me</label>
-      <div class="password-toggle-icon">
-        <i :class="`bi ${passwordVisible ? 'bi-eye-slash' : 'bi-eye'}`"></i>
-      </div>
     </div>
     <button type="submit" class="btn btn-primary btnlogin">Login</button>
 
