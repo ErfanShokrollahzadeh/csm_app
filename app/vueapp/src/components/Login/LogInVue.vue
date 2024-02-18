@@ -24,6 +24,7 @@
         aria-describedby="textHelp"
         required
       />
+      <p v-if="usernameError" class="error-text">Invalid username</p>
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword" class="form-label"
@@ -37,6 +38,7 @@
         id="exampleInputPassword1"
         required
       />
+      <p v-if="passwordError" class="error-text">Invalid password</p>
       <div class="input-group-append show">
         <button
           class="btn btn-outline-secondary"

@@ -62,6 +62,9 @@ h1 {
   margin: -25px 10px 0 0;
 }
 .error {
-  border: 1px solid #c30052;
-  background-color: #c30052;
+  border: 1px solid #c30052 !important;
+  background-color: #ffd5e7;
+}
+.error-text {
+  color: red;
 }

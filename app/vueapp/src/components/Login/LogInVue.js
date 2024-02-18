@@ -18,7 +18,8 @@ export default {
       this.passwordVisible = !this.passwordVisible;
     },
     validateForm() {
-      this.usernameError = !this.username;
+      const hasNumber = /\d/;
+      this.usernameError = hasNumber.test(this.username);
       this.passwordError = !this.password;
     },
   },
