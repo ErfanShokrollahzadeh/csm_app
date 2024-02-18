@@ -56,3 +56,8 @@ h1 {
   margin-left: 5px;
   text-decoration: none;
 }
+.show {
+  display: flex;
+  justify-content: flex-end;
+  margin: -25px 10px 0 0;
+}
