@@ -33,7 +33,7 @@
         id="exampleInputPassword1"
         required
       />
-      <div class="input-group-append">
+      <div class="input-group-append show">
         <button
           class="btn btn-outline-secondary"
           type="button"

@@ -84,3 +84,9 @@ h1 span {
 .pass_show .ptxt:hover {
   color: #333333;
 }
+
+.show {
+  display: flex;
+  justify-content: flex-end;
+  margin: -25px 10px 0 0;
+}
