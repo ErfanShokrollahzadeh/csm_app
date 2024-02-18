@@ -1,8 +1,7 @@
 <template>
   <div class="back">
-    <router-link to="/login" class="routback">⬅</router-link>
+    <router-link to="/forgotpass" class="routback">⬅</router-link>
   </div>
-
   <div class="title_pass">
     <h1>
       Forgot? <br />
@@ -14,26 +13,23 @@
     </p>
   </div>
 
-  <div class="form-check form-check selectradio">
-    <input class="form-check-input" type="radio" value="" id="reverseCheck1" />
-    <label class="form-check-label" for="reverseCheck1">
-      <p>via Email: <br />example@youremail.com</p>
-    </label>
-  </div>
-  <div class="form-check form-check selectradio">
-    <input class="form-check-input" type="radio" value="" id="reverseCheck1" />
-    <label class="form-check-label" for="reverseCheck1">
-      <p>via SMS: <br />+62-8421-4512-2531</p>
-    </label>
+  <div class="email-number">
+    <label>Email ID / Mobile number</label>
+    <input
+      type="text"
+      class="firstinput"
+      v-model="inputValue"
+      :class="{ error: inputError }"
+    />
   </div>
 
-  <p v-if="error" class="error-text">Please select an option</p>
+  <p v-if="inputError" class="error-text">Enter your email or number</p>
 
   <div class="button-container">
     <button
       type="button"
       class="btn btn-primary btnforgot"
-      @click="goToForgotPass1"
+      @click="goToForgotPass2"
     >
       Submit
     </button>
@@ -44,20 +40,16 @@
 export default {
   data() {
     return {
-      selectedOption: "",
-      error: false,
+      inputValue: "",
+      inputError: false,
     };
   },
   methods: {
-    validateForm() {
-      if (!this.selectedOption) {
-        this.error = true;
-      } else {
-        // Continue with form submission
-      }
+    validateInput() {
+      this.inputError = !this.inputValue;
     },
-    goToForgotPass1() {
-      this.$router.push("/forgotpass1");
+    goToForgotPass2() {
+      this.$router.push("/forgotpass2");
     },
   },
 };
@@ -74,7 +66,7 @@ export default {
   color: #4e4b66;
 }
 .title_pass {
-  padding: 20px;
+  padding: 11px;
 }
 h1 {
   font-weight: 900;
@@ -85,13 +77,27 @@ p {
   color: #4e4b66;
   font-weight: 300;
 }
+.email-number {
+  padding: 0px 15px;
+}
+.firstinput {
+  width: 100%;
+  height: 50px;
+  border-radius: 6px;
+}
+.error {
+  border: 1px solid red;
+}
+.error-text {
+  color: red;
+}
 .button-container {
   display: flex;
   justify-content: center;
 }
 @media (max-width: 992px) {
   .button-container {
-    margin-top: 25rem;
+    margin-top: 30rem;
   }
 }
 
@@ -108,12 +114,5 @@ p {
 }
 .btnforgot {
   width: 90%;
-}
-.selectradio {
-  margin-left: 10px;
-  background-color: #eef1f4;
-}
-.error-text {
-  color: red;
 }
 </style>
