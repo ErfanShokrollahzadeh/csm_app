@@ -90,3 +90,7 @@ h1 span {
   justify-content: flex-end;
   margin: -25px 10px 0 0;
 }
+.error {
+  border: 1px solid red;
+  background-color: #fdd;
+}

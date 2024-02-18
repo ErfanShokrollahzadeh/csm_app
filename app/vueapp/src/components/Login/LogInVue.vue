@@ -10,12 +10,14 @@
     </p>
   </div>
 
-  <form class="register">
+  <form class="register" @submit.prevent="validateForm">
     <div class="mb-3">
       <label for="exampleInputText" class="form-label"
         >username<span class="star">*</span></label
       >
       <input
+        v-model="username"
+        :class="{ error: usernameError }"
         type="text"
         class="form-control border-black"
         id="exampleInputText"
@@ -28,6 +30,8 @@
         >Password<span class="star">*</span></label
       >
       <input
+        v-model="password"
+        :class="{ error: passwordError }"
         :type="passwordFieldType"
         class="form-control border-black"
         id="exampleInputPassword1"
