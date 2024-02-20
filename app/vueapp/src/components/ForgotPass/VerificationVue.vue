@@ -18,7 +18,7 @@
       />
       <div class="input-group-append show">
         <button
-          class="btn btn-outline-secondary"
+          class="btn btn-outline-secondary icon"
           type="button"
           @click="togglePasswordVisibility"
         >
@@ -37,7 +37,7 @@
       />
       <div class="input-group-append show">
         <button
-          class="btn btn-outline-secondary"
+          class="btn btn-outline-secondary icon"
           type="button"
           @click="togglePasswordVisibility"
         >
@@ -134,5 +134,14 @@ span {
 label {
   font-weight: 700;
   color: #4e4b66;
+  padding: 10px 0 0 0;
+}
+.show {
+  display: flex;
+  justify-content: flex-end;
+  margin: -25px 10px 0 270px;
+}
+.icon {
+  margin-top: -6px;
 }
 </style>

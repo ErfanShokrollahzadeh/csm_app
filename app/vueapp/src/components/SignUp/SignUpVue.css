@@ -59,7 +59,7 @@ h1 {
 .show {
   display: flex;
   justify-content: flex-end;
-  margin: -25px 10px 0 300px;
+  margin: -25px 10px 0 270px;
 }
 .error {
   border: 1px solid #c30052 !important;
