@@ -5,6 +5,7 @@ import SignUpVue from "@/components/SignUp/SignUpVue.vue";
 import ForgotPass from "@/components/ForgotPass/ForgotPass.vue";
 import ForgotPass1 from "@/components/ForgotPass/ForgotPass1.vue";
 import ForgotPass2 from "@/components/ForgotPass/ForgotPass2.vue";
+import Verification from "@/components/ForgotPass/VerificationVue.vue";
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: "/forgotpass2",
     name: "ForgotPass2",
     component: ForgotPass2,
+  },
+  {
+    path: "/verification",
+    name: "Verification",
+    component: Verification,
   },
 ];
 
