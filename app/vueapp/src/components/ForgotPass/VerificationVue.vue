@@ -49,7 +49,7 @@
       <button
         type="submit"
         class="btn btn-primary btnforgot"
-        @click="goToVerification"
+        @click="goToVerification2"
       >
         Submit
       </button>
@@ -67,6 +67,9 @@ export default {
   methods: {
     togglePasswordVisibility() {
       this.passwordVisible = !this.passwordVisible;
+    },
+    goToVerification2() {
+      this.$router.push("/verification2");
     },
   },
   computed: {
