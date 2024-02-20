@@ -41,85 +41,11 @@
 </template>
 
 <script>
+import ForgotPass from "./ForgotPass.js";
 export default {
-  data() {
-    return {
-      selectedOption: "",
-      error: false,
-    };
-  },
-  methods: {
-    validateForm() {
-      if (!this.selectedOption) {
-        this.error = true;
-      } else {
-        // Continue with form submission
-      }
-    },
-    goToForgotPass1() {
-      this.$router.push("/forgotpass1");
-    },
-  },
+  name: "ForgotPass",
+  ...ForgotPass,
 };
 </script>
 
-<style scoped>
-.back {
-  margin-top: 20px;
-  margin-left: 20px;
-  font-size: 20px;
-}
-.routback {
-  text-decoration: none;
-  color: #4e4b66;
-}
-.title_pass {
-  padding: 20px;
-}
-h1 {
-  font-weight: 900;
-  color: #4e4b66;
-}
-p {
-  padding-top: 5px;
-  color: #4e4b66;
-  font-weight: 300;
-}
-.button-container {
-  display: flex;
-  justify-content: center;
-}
-@media (max-width: 992px) {
-  .button-container {
-    margin-top: 25rem;
-  }
-}
-
-/* For mobile phones */
-@media (max-width: 380px) {
-  .button-container {
-    margin-top: 18rem;
-  }
-}
-@media (max-width: 320px) {
-  .button-container {
-    margin-top: 12rem;
-  }
-}
-.btnforgot {
-  width: 90%;
-  height: 45px;
-  font-weight: 700;
-}
-.selectradio {
-  margin-left: 10px;
-  background-color: #eef1f4;
-}
-.error-text {
-  color: red;
-}
-label {
-  font-weight: 700;
-  color: #4e4b66;
-}
-</style>
+<style scoped src="./ForgotPass.css"></style>
