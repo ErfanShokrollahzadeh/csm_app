@@ -16,50 +16,12 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import VerificationVue2 from "./VerificationVue2.js";
+export default {
+  name: "VerificationVue2",
+  ...VerificationVue2,
+};
+</script>
 
-<style scoped>
-.child-verify {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-h1 {
-  font-weight: 900;
-  color: #4e4b66;
-  text-align: center;
-  margin-top: 125%;
-}
-p {
-  color: #4e4b66;
-  font-weight: 300;
-  text-align: center;
-}
-.button-container {
-  display: flex;
-  justify-content: center;
-}
-@media (max-width: 992px) {
-  .button-container {
-    margin-top: 30rem;
-  }
-}
-
-/* For mobile phones */
-@media (max-width: 400px) {
-  .button-container {
-    margin-top: 13rem;
-  }
-}
-@media (max-width: 320px) {
-  .button-container {
-    margin-top: 12rem;
-  }
-}
-.btnforgot {
-  width: 90%;
-  height: 45px;
-  font-weight: 700;
-}
-</style>
+<style scoped src="./VerificationVue2.css"></style>
