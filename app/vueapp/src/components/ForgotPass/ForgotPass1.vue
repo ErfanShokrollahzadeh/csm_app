@@ -37,88 +37,12 @@
 </template>
 
 <script>
+import ForgotPass1 from "./ForgotPass1.js";
+
 export default {
-  data() {
-    return {
-      inputValue: "",
-      inputError: false,
-    };
-  },
-  methods: {
-    validateInput() {
-      this.inputError = !this.inputValue;
-    },
-    goToForgotPass2() {
-      this.$router.push("/forgotpass2");
-    },
-  },
+  name: "ForgotPass1",
+  ...ForgotPass1,
 };
 </script>
 
-<style scoped>
-.back {
-  margin-top: 20px;
-  margin-left: 20px;
-  font-size: 20px;
-}
-.routback {
-  text-decoration: none;
-  color: #4e4b66;
-}
-.title_pass {
-  padding: 11px;
-}
-h1 {
-  font-weight: 900;
-  color: #4e4b66;
-}
-p {
-  padding-top: 5px;
-  color: #4e4b66;
-  font-weight: 300;
-}
-.email-number {
-  padding: 0px 15px;
-}
-.firstinput {
-  width: 100%;
-  height: 50px;
-  border-radius: 6px;
-}
-.error {
-  border: 1px solid red;
-}
-.error-text {
-  color: red;
-}
-.button-container {
-  display: flex;
-  justify-content: center;
-}
-@media (max-width: 992px) {
-  .button-container {
-    margin-top: 30rem;
-  }
-}
-
-/* For mobile phones */
-@media (max-width: 380px) {
-  .button-container {
-    margin-top: 18rem;
-  }
-}
-@media (max-width: 320px) {
-  .button-container {
-    margin-top: 12rem;
-  }
-}
-.btnforgot {
-  width: 90%;
-  height: 45px;
-  font-weight: 700;
-}
-label {
-  font-weight: 700;
-  color: #4e4b66;
-}
-</style>
+<style scoped src="./ForgotPass1.css"></style>
