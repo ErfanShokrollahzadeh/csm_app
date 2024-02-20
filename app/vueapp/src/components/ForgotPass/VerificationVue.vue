@@ -1,31 +1,31 @@
 <template>
   <div class="back">
-    <router-link to="/forgotpass1" class="routback">⬅</router-link>
+    <router-link to="/forgotpass2" class="routback">⬅</router-link>
   </div>
   <div class="title_pass">
     <h1>Reset <br />Password</h1>
   </div>
 
-  <form>
+  <form action="" class="rest-pass">
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <label for="exampleInputPassword1" class="form-label"
+        >New Password<span>*</span></label
+      >
       <input
-        type="email"
-        class="form-control"
-        id="exampleInputEmail1"
-        aria-describedby="emailHelp"
+        type="password"
+        class="form-control input"
+        id="exampleInputPassword1"
       />
-      <div id="emailHelp" class="form-text">
-        We'll never share your email with anyone else.
-      </div>
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" />
-    </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      <label for="exampleInputPassword1" class="form-label"
+        >Confirm new password<span>*</span></label
+      >
+      <input
+        type="password"
+        class="form-control input"
+        id="exampleInputPassword1"
+      />
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
@@ -44,10 +44,21 @@
   color: #4e4b66;
 }
 .title_pass {
-  padding: 25px;
+  padding: 15px;
 }
 h1 {
   font-weight: 900;
   color: #4e4b66;
+}
+.rest-pass {
+  padding: 20px;
+}
+span {
+  color: red;
+}
+.input {
+  width: 100%;
+  border: 1px solid #4e4b66;
+  height: 50px;
 }
 </style>
