@@ -12,20 +12,38 @@
         >New Password<span>*</span></label
       >
       <input
-        type="password"
+        :type="passwordFieldType"
         class="form-control input"
         id="exampleInputPassword1"
       />
+      <div class="input-group-append show">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          @click="togglePasswordVisibility"
+        >
+          <i :class="`fa ${passwordVisible ? 'fa-eye-slash' : 'fa-eye'}`"></i>
+        </button>
+      </div>
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label"
         >Confirm new password<span>*</span></label
       >
       <input
-        type="password"
+        :type="passwordFieldType"
         class="form-control input"
         id="exampleInputPassword1"
       />
+      <div class="input-group-append show">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          @click="togglePasswordVisibility"
+        >
+          <i :class="`fa ${passwordVisible ? 'fa-eye-slash' : 'fa-eye'}`"></i>
+        </button>
+      </div>
     </div>
     <div class="button-container">
       <button
@@ -33,13 +51,31 @@
         class="btn btn-primary btnforgot"
         @click="goToVerification"
       >
-        Verify
+        Submit
       </button>
     </div>
   </form>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      passwordVisible: false,
+    };
+  },
+  methods: {
+    togglePasswordVisibility() {
+      this.passwordVisible = !this.passwordVisible;
+    },
+  },
+  computed: {
+    passwordFieldType() {
+      return this.passwordVisible ? "text" : "password";
+    },
+  },
+};
+</script>
 
 <style scoped>
 .back {
