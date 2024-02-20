@@ -97,3 +97,7 @@ h1 span {
 .error-text {
   color: red;
 }
+label {
+  font-weight: 700;
+  color: #4e4b66;
+}

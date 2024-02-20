@@ -27,7 +27,15 @@
         id="exampleInputPassword1"
       />
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="button-container">
+      <button
+        type="submit"
+        class="btn btn-primary btnforgot"
+        @click="goToVerification"
+      >
+        Verify
+      </button>
+    </div>
   </form>
 </template>
 
@@ -60,5 +68,35 @@ span {
   width: 100%;
   border: 1px solid #4e4b66;
   height: 50px;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 992px) {
+  .button-container {
+    margin-top: 30rem;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 400px) {
+  .button-container {
+    margin-top: 25rem;
+  }
+}
+@media (max-width: 320px) {
+  .button-container {
+    margin-top: 12rem;
+  }
+}
+.btnforgot {
+  width: 100%;
+  height: 45px;
+  font-weight: 700;
+}
+label {
+  font-weight: 700;
+  color: #4e4b66;
 }
 </style>

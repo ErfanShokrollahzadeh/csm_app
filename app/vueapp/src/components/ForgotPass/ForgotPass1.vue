@@ -114,5 +114,11 @@ p {
 }
 .btnforgot {
   width: 90%;
+  height: 45px;
+  font-weight: 700;
+}
+label {
+  font-weight: 700;
+  color: #4e4b66;
 }
 </style>

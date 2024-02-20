@@ -108,6 +108,8 @@ p {
 }
 .btnforgot {
   width: 90%;
+  height: 45px;
+  font-weight: 700;
 }
 .selectradio {
   margin-left: 10px;
@@ -115,5 +117,9 @@ p {
 }
 .error-text {
   color: red;
+}
+label {
+  font-weight: 700;
+  color: #4e4b66;
 }
 </style>

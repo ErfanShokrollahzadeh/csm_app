@@ -163,6 +163,7 @@ p {
 }
 .btnforgot {
   width: 90%;
+  height: 45px;
   font-weight: 700;
 }
 .error-text {
@@ -172,5 +173,9 @@ p {
 .error-input {
   border: 1px solid #c30052;
   background-color: #fff3f8;
+}
+label {
+  font-weight: 700;
+  color: #4e4b66;
 }
 </style>
