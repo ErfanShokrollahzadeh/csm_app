@@ -1,12 +1,10 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from .models import CustomUser  # import the CustomUser model
 
 
-class RegisterForm(forms.Form):
-    username = forms.CharField(max_length=200, widget=forms.TextInput())
-    password = forms.CharField(max_length=200, widget=forms.PasswordInput())
-    phone_number = forms.CharField(max_length=200, widget=forms.TextInput())
-    image = forms.ImageField(required=False, widget=forms.FileInput())
-    is_active = forms.BooleanField(
-        blank=True, required=False, widget=forms.CheckboxInput())
-    is_staff = forms.BooleanField(
-        blank=True, required=False, widget=forms.CheckboxInput())
+class RegisterForm(UserCreationForm):
+    class Meta:
+        model = CustomUser  # use CustomUser instead of User
+        fields = ('username', 'password1',
+                  'password2', 'phone_number', 'image')
