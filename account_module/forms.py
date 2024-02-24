@@ -6,5 +6,4 @@ from .models import CustomUser  # import the CustomUser model
 class RegisterForm(UserCreationForm):
     class Meta:
         model = CustomUser  # use CustomUser instead of User
-        fields = ('username', 'password1',
-                  'password2', 'phone_number', 'image')
+        fields = ('username', 'password')

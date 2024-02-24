@@ -8,8 +8,8 @@ from rest_framework.decorators import api_view  # new *
 from rest_framework.views import APIView  # new *
 from rest_framework import generics, mixins  # new *
 from rest_framework import viewsets  # new * new
-from .models import Post, Category, Onbording, Register
-from .serializer import PostSerializer, RegisterSerializer, CategorySerializer, OnbordingSerializer
+from .models import Post, Category, Onbording, CustomUser
+from .serializer import PostSerializer, CategorySerializer, OnbordingSerializer, UserSerializer
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -40,6 +40,6 @@ class CategoryList(generics.ListCreateAPIView):
     serializer_class = CategorySerializer
 
 
-class RegisterUser(generics.CreateAPIView):
-    queryset = Register.objects.all()
-    serializer_class = RegisterSerializer
+class RegisterView(generics.CreateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer

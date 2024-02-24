@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . import models
+from .models import Post, Category, Onbording, CustomUser
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -28,8 +28,8 @@ class OnbordingAdmin(admin.ModelAdmin):
     image_preview.allow_tags = True
 
 
-class RegisterAdmin(admin.ModelAdmin):
-    list_display = ('username', 'is_active', 'is_staff')
+class CustomUserAdmin(admin.ModelAdmin):
+    list_display = ('username', 'password')
     # list_filter = ('category', 'is_active')
     # search_fields = ('title', 'content')
     # list_editable = ('is_active',)
@@ -41,7 +41,7 @@ class RegisterAdmin(admin.ModelAdmin):
     image_preview.allow_tags = True
 
 
-admin.site.register(models.Post, PostAdmin)
-admin.site.register(models.Category)
-admin.site.register(models.Onbording, OnbordingAdmin)
-admin.site.register(models.Register, RegisterAdmin)
+admin.site.register(Post, PostAdmin)
+admin.site.register(Category)
+admin.site.register(Onbording, OnbordingAdmin)
+admin.site.register(CustomUser, CustomUserAdmin)

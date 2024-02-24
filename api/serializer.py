@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post, Category, Onbording, Register
+from .models import Post, Category, Onbording, CustomUser
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -23,7 +23,7 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class RegisterSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Register
-        fields = '__all__'
+        model = CustomUser
+        fields = ('username', 'password')

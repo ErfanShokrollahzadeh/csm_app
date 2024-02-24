@@ -1,4 +1,29 @@
+from asyncio import AbstractServer
 from django.db import models
+
+
+class CustomUser(models.Model):
+    username = models.CharField(
+        'username',
+        max_length=20,
+        unique=True,
+        help_text='Required. 20 characters or fewer. Letters, digits and @/./+/-/_ only.',
+        error_messages={
+            'unique': "A user with that username already exists.",
+        },
+    )
+    password = models.CharField(
+        'password',
+        max_length=128,
+        help_text='A raw password representing the user’s password.',
+    )
+
+    class Meta:
+        verbose_name = 'user'
+        verbose_name_plural = 'users'
+
+    def __str__(self) -> str:
+        return self.username
 
 
 class Category(models.Model):
@@ -36,18 +61,3 @@ class Onbording(models.Model):
 
     class Meta:
         verbose_name_plural = 'Onbording info'
-
-
-class Register(models.Model):
-    username = models.CharField(max_length=200, unique=True)
-    password = models.CharField(max_length=200)
-    phone_number = models.CharField(max_length=200, unique=True)
-    # image = models.ImageField(upload_to='images/', null=True, blank=True)
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.username
-
-    class Meta:
-        verbose_name_plural = 'Register info'
