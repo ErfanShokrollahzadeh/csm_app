@@ -8,10 +8,6 @@ export default {
       password: "",
       usernameError: false,
       passwordError: false,
-      password1: "",
-      password2: "",
-      phoneNumber: "",
-      image: null,
     };
   },
   computed: {
@@ -31,10 +27,7 @@ export default {
     submitForm() {
       let formData = new FormData();
       formData.append("username", this.username);
-      formData.append("password1", this.password1);
-      formData.append("password2", this.password2);
-      formData.append("phone_number", this.phoneNumber);
-      formData.append("image", this.image);
+      formData.append("password1", this.password);
 
       axios
         .post("/register/", formData)
