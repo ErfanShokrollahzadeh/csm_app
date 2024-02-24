@@ -27,7 +27,7 @@ export default {
     submitForm() {
       let formData = new FormData();
       formData.append("username", this.username);
-      formData.append("password1", this.password);
+      formData.append("password", this.password);
 
       axios
         .post("/register/", formData)

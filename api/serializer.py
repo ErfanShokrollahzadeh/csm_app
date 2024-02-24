@@ -26,4 +26,4 @@ class CategorySerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ('username', 'password')
+        fields = '__all__'

@@ -40,6 +40,11 @@ class CategoryList(generics.ListCreateAPIView):
     serializer_class = CategorySerializer
 
 
-class RegisterView(generics.CreateAPIView):
+class RegisterView(generics.ListCreateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
+
+
+class RegisterDetailsView(generics.RetrieveUpdateDestroyAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
