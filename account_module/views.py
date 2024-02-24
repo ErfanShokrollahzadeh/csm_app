@@ -6,12 +6,12 @@ from django.views import View
 
 
 class RegisterForm(UserCreationForm):
-    phone_number = forms.CharField(max_length=30)
+    username = forms.CharField(max_length=20)
+    password = forms.CharField(widget=forms.PasswordInput())
 
     class Meta:
         model = get_user_model()
-        fields = ('username', 'password1',
-                  'password2', 'phone_number', 'image')
+        fields = ('username', 'password')
 
 
 class Register(View):

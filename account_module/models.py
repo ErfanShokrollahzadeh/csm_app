@@ -3,8 +3,20 @@ from django.db import models
 
 
 class CustomUser(AbstractUser):
-    phone_number = models.CharField(max_length=30)
-    image = models.ImageField(upload_to='profile_images/')
+    username = models.CharField(
+        'username',
+        max_length=20,
+        unique=True,
+        help_text='Required. 20 characters or fewer. Letters, digits and @/./+/-/_ only.',
+        error_messages={
+            'unique': "A user with that username already exists.",
+        },
+    )
+    password = models.CharField(
+        'password',
+        max_length=128,
+        help_text='A raw password representing the user’s password.',
+    )
 
     # Add related_name arguments
     groups = models.ManyToManyField(

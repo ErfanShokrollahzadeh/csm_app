@@ -71,10 +71,14 @@
 
 <script>
 import SignUp from "./SignUpVue.js";
+import { mapActions } from "vuex";
 
 export default {
   name: "SignUpVue",
   ...SignUp,
+  methods: {
+    ...mapActions(["submitForm"]),
+  },
 };
 </script>
 
