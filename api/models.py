@@ -72,3 +72,13 @@ class SelectCountry(models.Model):
 
     class Meta:
         verbose_name_plural = 'Select Country'
+
+
+class Topics(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'Topics'

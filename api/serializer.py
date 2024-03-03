@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post, Category, Onbording, CustomUser, SelectCountry
+from .models import Post, Category, Onbording, CustomUser, SelectCountry, Topics
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -32,4 +32,10 @@ class UserSerializer(serializers.ModelSerializer):
 class SelectCountrySerializer(serializers.ModelSerializer):
     class Meta:
         model = SelectCountry
+        fields = '__all__'
+
+
+class TopicsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Topics
         fields = '__all__'

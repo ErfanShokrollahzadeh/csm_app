@@ -12,4 +12,6 @@ urlpatterns = [
     path('register/<int:pk>/', views.RegisterDetailsView.as_view(), name='register'),
     path('select-country/', views.SelectCountryView.as_view(), name='select-country'),
     path('select-country/<int:pk>/', views.SelectCountryDetails.as_view()),
+    path('topics/', views.TopicsView.as_view(), name='topics'),
+    path('topics/<int:pk>/', views.TopicsView.as_view(), name='topics'),
 ]

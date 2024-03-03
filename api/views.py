@@ -8,8 +8,8 @@ from rest_framework.decorators import api_view  # new *
 from rest_framework.views import APIView  # new *
 from rest_framework import generics, mixins  # new *
 from rest_framework import viewsets  # new * new
-from .models import Post, Category, Onbording, CustomUser, SelectCountry
-from .serializer import PostSerializer, CategorySerializer, OnbordingSerializer, UserSerializer, SelectCountrySerializer
+from .models import Post, Category, Onbording, CustomUser, SelectCountry, Topics
+from .serializer import PostSerializer, CategorySerializer, OnbordingSerializer, UserSerializer, SelectCountrySerializer, TopicsSerializer
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -58,3 +58,13 @@ class SelectCountryView(generics.ListCreateAPIView):
 class SelectCountryDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = SelectCountry.objects.all()
     serializer_class = SelectCountrySerializer
+
+
+class TopicsView(generics.ListCreateAPIView):
+    queryset = Topics.objects.all()
+    serializer_class = TopicsSerializer
+
+
+class TopicsDetails(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Topics.objects.all()
+    serializer_class = TopicsSerializer
