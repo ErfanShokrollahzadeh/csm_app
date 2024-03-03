@@ -1,32 +1,36 @@
 <template>
-  <div>
-    <input type="text" v-model="searchText" placeholder="Search country" />
-    <ul>
-      <li v-for="country in filteredCountries" :key="country.id">
-        {{ country.name }}
-      </li>
-    </ul>
+  <div class="back">
+    <router-link to="/forgotpass1" class="routback">⬅</router-link>
+  </div>
+  <div class="title_pass">
+    <h1>OTP Verification</h1>
+    <p>Enter the OTP sent to +67-1234-5678-9</p>
+  </div>
+
+  <div v-for="country in countries" :key="country.id">
+    <div>
+      {{ country.title }}
+      <img :src="country.image" class="d-block w-100" alt="Country image" />
+    </div>
   </div>
 </template>
 
 <script>
+import api from "@/api";
+
 export default {
   data() {
     return {
-      searchText: "",
-      countries: [
-        { id: 1, name: "India" },
-        { id: 2, name: "USA" },
-        { id: 3, name: "UK" },
-        { id: 4, name: "Australia" },
-        { id: 5, name: "Canada" },
-        { id: 6, name: "Germany" },
-        { id: 7, name: "France" },
-        { id: 8, name: "Italy" },
-        { id: 9, name: "Japan" },
-        { id: 10, name: "China" },
-      ],
+      countries: [],
     };
+  },
+  async created() {
+    try {
+      const response = await api.getCountry();
+      this.items = response.data;
+    } catch (error) {
+      console.error(error);
+    }
   },
   computed: {
     filteredCountries() {
@@ -39,3 +43,22 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.back {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 20px;
+}
+.routback {
+  text-decoration: none;
+  color: #4e4b66;
+}
+.title_pass {
+  margin-top: 30px;
+  padding: 11px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>

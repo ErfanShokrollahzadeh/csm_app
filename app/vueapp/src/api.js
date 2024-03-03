@@ -18,4 +18,7 @@ export default {
   getCategories() {
     return apiClient.get("categories/");
   },
+  getCountry() {
+    return apiClient.get("select-country/");
+  },
 };
