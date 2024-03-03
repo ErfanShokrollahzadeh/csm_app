@@ -1,6 +1,6 @@
 <template>
   <div class="back">
-    <router-link to="/signup" class="routback">⬅</router-link>
+    <router-link to="/selectcountry" class="routback">⬅</router-link>
     <h3>Select your Country</h3>
   </div>
 
