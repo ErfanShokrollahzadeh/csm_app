@@ -10,5 +10,6 @@ urlpatterns = [
     path('categories/', views.CategoryList.as_view(), name='category-list'),
     path('register/', views.RegisterView.as_view(), name='register'),
     path('register/<int:pk>/', views.RegisterDetailsView.as_view(), name='register'),
-
+    path('select-country/', views.SelectCountryView.as_view(), name='select-country'),
+    path('select-country/<int:pk>/', views.SelectCountryDetails.as_view()),
 ]
