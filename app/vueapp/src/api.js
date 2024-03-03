@@ -21,4 +21,7 @@ export default {
   getCountry() {
     return apiClient.get("select-country/");
   },
+  getTopics() {
+    return apiClient.get("topics/");
+  },
 };

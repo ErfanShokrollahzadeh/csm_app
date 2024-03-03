@@ -17,7 +17,7 @@
 
   <div class="button-container">
     <button type="button" class="btn btn-primary btnforgot" @click="goto">
-      Submit
+      Next
     </button>
   </div>
 </template>
@@ -118,10 +118,6 @@ h3 {
   outline: none;
   font-size: 16px;
   color: #4e4b66;
-}
-.country-list {
-  display: flex;
-  flex-direction: column;
 }
 .button-container {
   display: flex;

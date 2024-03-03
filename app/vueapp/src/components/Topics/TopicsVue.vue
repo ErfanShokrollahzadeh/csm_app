@@ -1,24 +1,24 @@
 <template>
-  <div class="container">
-    <div class="back">
-      <a href="/" class="routback">Back</a>
-      <h1>Topics</h1>
+  <div class="back">
+    <router-link to="/signup" class="routback">⬅</router-link>
+    <h3>Select your Country</h3>
+  </div>
+
+  <div class="searchbar">
+    <input type="text" placeholder="Search" class="w" v-model="searchText" />
+    <i class="search-icon fas fa-search"></i>
+  </div>
+
+  <div class="topics">
+    <div v-for="topic in filteredTopics" :key="topic.id" class="topic">
+      <h2>{{ topic.name }}</h2>
     </div>
-    <div class="search-container">
-      <input
-        type="text"
-        v-model="searchText"
-        placeholder="Search for topics..."
-        class="search"
-      />
-    </div>
-    <div class="topics">
-      <div v-for="topic in filteredTopics" :key="topic.id" class="topic">
-        <h2>{{ topic.name }}</h2>
-        <p>{{ topic.description }}</p>
-      </div>
-    </div>
-    <button class="btn btn-primary" @click="goto">Submit</button>
+  </div>
+
+  <div class="button-container">
+    <button type="button" class="btn btn-primary btnforgot" @click="goto">
+      Next
+    </button>
   </div>
 </template>
 
@@ -57,3 +57,111 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.routback {
+  margin-right: 10px;
+}
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.topics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topic {
+  margin-bottom: 20px;
+}
+
+.back {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-left: -10px;
+  margin-right: 30px;
+}
+.routback {
+  text-decoration: none;
+  color: #4e4b66;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #4e4b66;
+}
+.searchbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+}
+.w {
+  width: 85%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #4e4b66;
+  outline: none;
+  font-size: 16px;
+  color: #4e4b66;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 992px) {
+  .button-container {
+    margin-top: 10rem;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 380px) {
+  .button-container {
+    margin-top: 0rem;
+  }
+}
+@media (max-width: 320px) {
+  .button-container {
+    margin-top: 0rem;
+  }
+}
+.btnforgot {
+  width: 90%;
+  height: 45px;
+  font-weight: 700;
+}
+</style>
