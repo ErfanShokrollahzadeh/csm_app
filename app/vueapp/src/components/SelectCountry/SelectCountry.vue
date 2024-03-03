@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     goto() {
-      this.$router.push("/signup");
+      this.$router.push("/topics");
     },
   },
 };

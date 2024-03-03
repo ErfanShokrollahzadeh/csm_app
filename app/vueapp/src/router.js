@@ -8,6 +8,7 @@ import ForgotPass2 from "@/components/ForgotPass/ForgotPass2.vue";
 import Verification from "@/components/ForgotPass/VerificationVue.vue";
 import Verification2 from "@/components/ForgotPass/VerificationVue2.vue";
 import SelectCountry from "@/components/SelectCountry/SelectCountry.vue";
+import TopicsVue from "@/components/Topics/TopicsVue.vue";
 
 const routes = [
   {
@@ -54,6 +55,11 @@ const routes = [
     path: "/selectcountry",
     name: "SelectCountry",
     component: SelectCountry,
+  },
+  {
+    path: "/topics",
+    name: "Topics",
+    component: TopicsVue,
   },
 ];
 
