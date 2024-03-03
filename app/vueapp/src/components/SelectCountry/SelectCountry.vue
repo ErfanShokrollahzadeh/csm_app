@@ -16,11 +16,7 @@
   </ul>
 
   <div class="button-container">
-    <button
-      type="button"
-      class="btn btn-primary btnforgot"
-      @click="goToForgotPass1"
-    >
+    <button type="button" class="btn btn-primary btnforgot" @click="goto">
       Submit
     </button>
   </div>
@@ -133,19 +129,19 @@ h3 {
 }
 @media (max-width: 992px) {
   .button-container {
-    margin-top: 25rem;
+    margin-top: 10rem;
   }
 }
 
 /* For mobile phones */
 @media (max-width: 380px) {
   .button-container {
-    margin-top: 18rem;
+    margin-top: 0rem;
   }
 }
 @media (max-width: 320px) {
   .button-container {
-    margin-top: 12rem;
+    margin-top: 0rem;
   }
 }
 .btnforgot {
