@@ -4,7 +4,13 @@
     <p>Signup to get Started</p>
   </div>
 
-  <form class="register" @submit.prevent="submitForm">
+  <form
+    class="register"
+    @submit.prevent="
+      submitForm;
+      validateForm;
+    "
+  >
     <div class="mb-3">
       <label for="exampleInputText" class="form-label"
         >username<span class="star">*</span></label
