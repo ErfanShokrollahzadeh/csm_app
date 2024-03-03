@@ -53,7 +53,14 @@
       <input type="checkbox" class="form-check-input" id="exampleCheck1" />
       <label class="form-check-label" for="exampleCheck1">Remmember me</label>
     </div>
-    <button type="submit" class="btn btn-primary btnlogin">Login</button>
+    <button type="submit" class="btn btn-primary btnlogin">
+      <router-link
+        to="/selectcountry"
+        style="color: white; text-decoration: none"
+      >
+        Login
+      </router-link>
+    </button>
 
     <p class="firstp">or continue with</p>
 

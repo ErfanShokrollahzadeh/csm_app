@@ -7,6 +7,7 @@ import ForgotPass1 from "@/components/ForgotPass/ForgotPass1.vue";
 import ForgotPass2 from "@/components/ForgotPass/ForgotPass2.vue";
 import Verification from "@/components/ForgotPass/VerificationVue.vue";
 import Verification2 from "@/components/ForgotPass/VerificationVue2.vue";
+import SelectCountry from "@/components/SelectCountry/SelectCountry.vue";
 
 const routes = [
   {
@@ -48,6 +49,11 @@ const routes = [
     path: "/verification2",
     name: "Verification2",
     component: Verification2,
+  },
+  {
+    path: "/selectcountry",
+    name: "SelectCountry",
+    component: SelectCountry,
   },
 ];
 

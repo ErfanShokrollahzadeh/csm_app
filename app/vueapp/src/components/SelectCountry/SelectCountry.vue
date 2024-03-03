@@ -1,17 +1,28 @@
 <template>
   <div class="back">
-    <router-link to="/forgotpass1" class="routback">⬅</router-link>
+    <router-link to="/signup" class="routback">⬅</router-link>
+    <h3>Select your Country</h3>
   </div>
-  <div class="title_pass">
-    <h1>OTP Verification</h1>
-    <p>Enter the OTP sent to +67-1234-5678-9</p>
+  <div class="searchbar">
+    <input type="text" placeholder="Search" class="w" v-model="searchText" />
+    <i class="search-icon fas fa-search"></i>
   </div>
 
-  <div v-for="country in countries" :key="country.id">
-    <div>
+  <ul class="country-list">
+    <li v-for="country in countries" :key="country.id" class="data">
+      <img :src="country.image" class="d-block" alt="Country image" />
       {{ country.title }}
-      <img :src="country.image" class="d-block w-100" alt="Country image" />
-    </div>
+    </li>
+  </ul>
+
+  <div class="button-container">
+    <button
+      type="button"
+      class="btn btn-primary btnforgot"
+      @click="goToForgotPass1"
+    >
+      Submit
+    </button>
   </div>
 </template>
 
@@ -22,23 +33,30 @@ export default {
   data() {
     return {
       countries: [],
+      searchText: "",
     };
   },
   async created() {
     try {
       const response = await api.getCountry();
-      this.items = response.data;
+      this.countries = response.data;
     } catch (error) {
-      console.error(error);
+      console.error("Error fetching countries:", error);
     }
   },
   computed: {
     filteredCountries() {
       return this.countries.filter((country) => {
-        return country.name
-          .toLowerCase()
-          .includes(this.searchText.toLowerCase());
+        return (
+          country.name &&
+          country.name.toLowerCase().startsWith(this.searchText.toLowerCase())
+        );
       });
+    },
+  },
+  methods: {
+    goto() {
+      this.$router.push("/signup");
     },
   },
 };
@@ -46,19 +64,93 @@ export default {
 
 <style scoped>
 .back {
-  margin-top: 20px;
-  margin-left: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
   font-size: 20px;
+  margin-top: 30px;
+  margin-left: -10px;
+  margin-right: 30px;
 }
 .routback {
   text-decoration: none;
   color: #4e4b66;
 }
-.title_pass {
-  margin-top: 30px;
-  padding: 11px;
+
+.search-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #4e4b66;
+}
+
+.data {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5px;
+  flex-direction: row;
+  margin-right: 160px;
+  cursor: pointer;
+}
+.data:hover {
+  background-color: #1877f2;
+}
+img {
+  width: 45px;
+  height: 45px;
+}
+h3 {
+  font-weight: 700;
+}
+.searchbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+}
+.w {
+  width: 85%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #4e4b66;
+  outline: none;
+  font-size: 16px;
+  color: #4e4b66;
+}
+.country-list {
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 992px) {
+  .button-container {
+    margin-top: 25rem;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 380px) {
+  .button-container {
+    margin-top: 18rem;
+  }
+}
+@media (max-width: 320px) {
+  .button-container {
+    margin-top: 12rem;
+  }
+}
+.btnforgot {
+  width: 90%;
+  height: 45px;
+  font-weight: 700;
 }
 </style>
