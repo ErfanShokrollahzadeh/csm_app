@@ -1,7 +1,7 @@
 <template>
   <div class="back">
     <router-link to="/selectcountry" class="routback">⬅</router-link>
-    <h3>Select your Country</h3>
+    <h3>Choose your Topics</h3>
   </div>
 
   <div class="searchbar">
@@ -66,13 +66,6 @@ export default {
   justify-content: center;
   margin-top: 50px;
 }
-
-.back {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
 .routback {
   margin-right: 10px;
 }
@@ -90,12 +83,21 @@ export default {
 
 .topics {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  padding: 30px;
 }
 
 .topic {
-  margin-bottom: 20px;
+  padding: 5px;
+  border: 1px solid #1877f2;
+  border-radius: 5px;
+  color: #1877f2;
+  margin: 4px;
+}
+
+.topic:hover {
+  background-color: #1877f2;
+  color: white;
 }
 
 .back {
@@ -104,8 +106,7 @@ export default {
   align-items: flex-start;
   font-size: 20px;
   margin-top: 30px;
-  margin-left: -10px;
-  margin-right: 30px;
+  margin-right: 45px;
 }
 .routback {
   text-decoration: none;
@@ -144,7 +145,7 @@ export default {
 }
 @media (max-width: 992px) {
   .button-container {
-    margin-top: 10rem;
+    margin-top: 17rem;
   }
 }
 

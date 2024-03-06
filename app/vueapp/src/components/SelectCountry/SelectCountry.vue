@@ -96,6 +96,7 @@ export default {
 }
 .data:hover {
   background-color: #1877f2;
+  color: white;
 }
 img {
   width: 45px;
