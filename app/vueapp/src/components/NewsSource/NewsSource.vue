@@ -1,7 +1,7 @@
 <template>
   <div class="back">
     <router-link to="/selectcountry" class="routback">⬅</router-link>
-    <h3>Choose your Topics</h3>
+    <h3>Choose your News Sources</h3>
   </div>
 
   <div class="searchbar">
@@ -23,50 +23,10 @@
 </template>
 
 <script>
-import api from "@/api";
-
-export default {
-  data() {
-    return {
-      topics: [],
-      searchText: "",
-    };
-  },
-  async created() {
-    try {
-      const response = await api.getTopics();
-      this.topics = response.data;
-    } catch (error) {
-      console.error("Error fetching topics:", error);
-    }
-  },
-  computed: {
-    filteredTopics() {
-      return this.topics.filter((topic) => {
-        return (
-          topic.name &&
-          topic.name.toLowerCase().startsWith(this.searchText.toLowerCase())
-        );
-      });
-    },
-  },
-  methods: {
-    goto() {
-      this.$router.push("/newssource");
-    },
-  },
-};
+export default {};
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 50px;
-}
-
 .search-container {
   margin-bottom: 20px;
 }
@@ -76,25 +36,6 @@ export default {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-}
-
-.topics {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 30px;
-}
-
-.topic {
-  padding: 5px;
-  border: 1px solid #1877f2;
-  border-radius: 5px;
-  color: #1877f2;
-  margin: 4px;
-}
-
-.topic:hover {
-  background-color: #1877f2;
-  color: white;
 }
 
 .back {
@@ -108,6 +49,7 @@ export default {
 .routback {
   text-decoration: none;
   color: #4e4b66;
+  margin-right: 10px;
 }
 
 .search-container {
