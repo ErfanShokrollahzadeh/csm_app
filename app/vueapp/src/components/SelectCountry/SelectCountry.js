@@ -15,11 +15,13 @@ export default {
     }
   },
   computed: {
-    filteredCountries() {
-      return this.countries.filter((country) => {
+    filteredcountries() {
+      return this.countries.filter((countries) => {
         return (
-          country.name &&
-          country.name.toLowerCase().startsWith(this.searchText.toLowerCase())
+          countries.title &&
+          countries.title
+            .toLowerCase()
+            .startsWith(this.searchText.toLowerCase())
         );
       });
     },

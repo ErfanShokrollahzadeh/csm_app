@@ -9,7 +9,7 @@
   </div>
 
   <ul class="country-list">
-    <li v-for="country in countries" :key="country.id" class="data">
+    <li v-for="country in filteredcountries" :key="country.id" class="data">
       <img :src="country.image" class="d-block" alt="Country image" />
       {{ country.title }}
     </li>
