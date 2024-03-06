@@ -14,6 +14,6 @@ urlpatterns = [
     path('select-country/<int:pk>/', views.SelectCountryDetails.as_view()),
     path('topics/', views.TopicsView.as_view(), name='topics'),
     path('topics/<int:pk>/', views.TopicsView.as_view(), name='topics'),
-    path('news-scoure/', views.NewsScoureView.as_view(), name='news-scoure'),
-    path('news-scoure/<int:pk>/', views.NewsScoureDetails.as_view()),
+    path('news_scoure/', views.NewsScoureView.as_view(), name='news_scoure'),
+    path('news_scoure/<int:pk>/', views.NewsScoureDetails.as_view()),
 ]

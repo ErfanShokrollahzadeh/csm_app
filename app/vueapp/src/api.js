@@ -24,4 +24,7 @@ export default {
   getTopics() {
     return apiClient.get("topics/");
   },
+  getNews() {
+    return apiClient.get("news_scoure/");
+  },
 };

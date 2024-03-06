@@ -9,11 +9,12 @@
     <i class="search-icon fas fa-search"></i>
   </div>
 
-  <div class="topics">
-    <div v-for="topic in filteredTopics" :key="topic.id" class="topic">
-      <h2>{{ topic.name }}</h2>
-    </div>
-  </div>
+  <ul class="news-list">
+    <li v-for="news in filteredNews" :key="news.id" class="news">
+      <img :src="news.image" class="d-block" alt="news image" />
+      {{ news.name }}
+    </li>
+  </ul>
 
   <div class="button-container">
     <button type="button" class="btn btn-primary btnforgot" @click="goto">
@@ -23,7 +24,39 @@
 </template>
 
 <script>
-export default {};
+import api from "@/api";
+
+export default {
+  data() {
+    return {
+      news: [],
+      searchText: "",
+    };
+  },
+  async created() {
+    try {
+      const response = await api.getNews();
+      this.news = response.data;
+    } catch (error) {
+      console.error("Error fetching news:", error);
+    }
+  },
+  computed: {
+    filteredNews() {
+      return this.news.filter((news) => {
+        return (
+          news.name &&
+          news.name.toLowerCase().startsWith(this.searchText.toLowerCase())
+        );
+      });
+    },
+  },
+  methods: {
+    goto() {
+      this.$router.push("/newssource");
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -103,5 +136,20 @@ export default {};
   width: 90%;
   height: 45px;
   font-weight: 700;
+}
+img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.news-list {
+  list-style: none;
+  margin-top: 20px;
+}
+.news {
+  display: flex;
+  margin-bottom: 10px;
+  flex-direction: column;
 }
 </style>
