@@ -82,3 +82,14 @@ class Topics(models.Model):
 
     class Meta:
         verbose_name_plural = 'Topics'
+
+
+class NewsScoure(models.Model):
+    name = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'News Scoure'

@@ -8,8 +8,8 @@ from rest_framework.decorators import api_view  # new *
 from rest_framework.views import APIView  # new *
 from rest_framework import generics, mixins  # new *
 from rest_framework import viewsets  # new * new
-from .models import Post, Category, Onbording, CustomUser, SelectCountry, Topics
-from .serializer import PostSerializer, CategorySerializer, OnbordingSerializer, UserSerializer, SelectCountrySerializer, TopicsSerializer
+from .models import Post, Category, Onbording, CustomUser, SelectCountry, Topics, NewsScoure
+from .serializer import PostSerializer, CategorySerializer, OnbordingSerializer, UserSerializer, SelectCountrySerializer, TopicsSerializer, NewsScoureSerializer
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -68,3 +68,13 @@ class TopicsView(generics.ListCreateAPIView):
 class TopicsDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = Topics.objects.all()
     serializer_class = TopicsSerializer
+
+
+class NewsScoureView(generics.ListCreateAPIView):
+    queryset = NewsScoure.objects.all()
+    serializer_class = NewsScoureSerializer
+
+
+class NewsScoureDetails(generics.RetrieveUpdateDestroyAPIView):
+    queryset = NewsScoure.objects.all()
+    serializer_class = NewsScoureSerializer

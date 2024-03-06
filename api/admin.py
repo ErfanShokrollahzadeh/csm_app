@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Category, Onbording, CustomUser, SelectCountry, Topics
+from .models import Post, Category, Onbording, CustomUser, SelectCountry, Topics, NewsScoure
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -47,3 +47,4 @@ admin.site.register(Onbording, OnbordingAdmin)
 admin.site.register(CustomUser, CustomUserAdmin)
 admin.site.register(SelectCountry)
 admin.site.register(Topics)
+admin.site.register(NewsScoure)

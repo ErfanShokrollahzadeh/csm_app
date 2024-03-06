@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post, Category, Onbording, CustomUser, SelectCountry, Topics
+from .models import Post, Category, Onbording, CustomUser, SelectCountry, Topics, NewsScoure
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -38,4 +38,10 @@ class SelectCountrySerializer(serializers.ModelSerializer):
 class TopicsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Topics
+        fields = '__all__'
+
+
+class NewsScoureSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NewsScoure
         fields = '__all__'
