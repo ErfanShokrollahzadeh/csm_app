@@ -1,6 +1,6 @@
 <template>
   <div class="back">
-    <router-link to="/selectcountry" class="routback">⬅</router-link>
+    <router-link to="/topics" class="routback">⬅</router-link>
     <h3>Choose your News Sources</h3>
   </div>
 
@@ -138,18 +138,20 @@ export default {
   font-weight: 700;
 }
 img {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  margin-right: 10px;
 }
 .news-list {
   list-style: none;
-  margin-top: 20px;
+  margin: 20px 10px 0px -15px;
+  display: flex;
+  justify-content: space-around;
 }
 .news {
   display: flex;
   margin-bottom: 10px;
   flex-direction: column;
+  align-items: center;
 }
 </style>
