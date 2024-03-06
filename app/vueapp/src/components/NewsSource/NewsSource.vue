@@ -9,12 +9,12 @@
     <i class="search-icon fas fa-search"></i>
   </div>
 
-  <ul class="news-list">
-    <li v-for="news in filteredNews" :key="news.id" class="news">
+  <div class="news-list">
+    <div v-for="news in filteredNews" :key="news.id" class="news">
       <img :src="news.image" class="d-block" alt="news image" />
       {{ news.name }}
-    </li>
-  </ul>
+    </div>
+  </div>
 
   <div class="button-container">
     <button type="button" class="btn btn-primary btnforgot" @click="goto">
@@ -143,8 +143,7 @@ img {
   border-radius: 50%;
 }
 .news-list {
-  list-style: none;
-  margin: 20px 10px 0px -15px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-around;
 }
