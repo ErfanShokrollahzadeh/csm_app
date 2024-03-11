@@ -93,3 +93,16 @@ class NewsScoure(models.Model):
 
     class Meta:
         verbose_name_plural = 'News Scoure'
+
+
+class FillProfile(models.Model):
+    username = models.CharField(max_length=200)
+    full_name = models.CharField(max_length=200)
+    email = models.EmailField(max_length=200)
+    phone_number = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.username
+
+    class Meta:
+        verbose_name_plural = 'Fill Profile'

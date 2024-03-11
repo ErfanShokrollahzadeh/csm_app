@@ -23,12 +23,6 @@
   transform: translateY(-50%);
   color: #4e4b66;
 }
-.country-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  align-items: center;
-}
 
 .data {
   display: flex;

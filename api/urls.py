@@ -16,4 +16,6 @@ urlpatterns = [
     path('topics/<int:pk>/', views.TopicsView.as_view(), name='topics'),
     path('news_scoure/', views.NewsScoureView.as_view(), name='news_scoure'),
     path('news_scoure/<int:pk>/', views.NewsScoureDetails.as_view()),
+    path('fill-profile/', views.FillProfileView.as_view(), name='fill-profile'),
+    path('fill-profile/<int:pk>/', views.FileProfileDetails.as_view()),
 ]
