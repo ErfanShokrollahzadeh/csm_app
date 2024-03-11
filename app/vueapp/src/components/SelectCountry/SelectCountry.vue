@@ -8,12 +8,12 @@
     <i class="search-icon fas fa-search"></i>
   </div>
 
-  <ul class="country-list">
-    <li v-for="country in filteredcountries" :key="country.id" class="data">
+  <div class="country-list">
+    <div v-for="country in filteredcountries" :key="country.id" class="data">
       <img :src="country.image" class="d-block" alt="Country image" />
       {{ country.title }}
-    </li>
-  </ul>
+    </div>
+  </div>
 
   <div class="button-container">
     <button type="button" class="btn btn-primary btnforgot" @click="goto">

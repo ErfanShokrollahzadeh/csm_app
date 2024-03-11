@@ -1,7 +1,7 @@
 <template>
   <div class="back">
     <router-link to="/topics" class="routback">⬅</router-link>
-    <h3>Choose your News Sources</h3>
+    <h5>Choose your News Sources</h5>
   </div>
 
   <div class="searchbar">
@@ -144,8 +144,9 @@ img {
 }
 .news-list {
   margin-top: 20px;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 .news {
   display: flex;
