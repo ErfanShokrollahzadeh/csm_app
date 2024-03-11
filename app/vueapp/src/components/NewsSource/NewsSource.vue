@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     goto() {
-      this.$router.push("/newssource");
+      this.$router.push("/fillprofile");
     },
   },
 };

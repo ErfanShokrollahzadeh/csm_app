@@ -10,6 +10,7 @@ import Verification2 from "@/components/ForgotPass/VerificationVue2.vue";
 import SelectCountry from "@/components/SelectCountry/SelectCountry.vue";
 import TopicsVue from "@/components/Topics/TopicsVue.vue";
 import NewsSource from "@/components/NewsSource/NewsSource.vue";
+import FillProfile from "@/components/FillProfile/FillProfile.vue";
 
 const routes = [
   {
@@ -66,6 +67,11 @@ const routes = [
     path: "/newssource",
     name: "NewsSource",
     component: NewsSource,
+  },
+  {
+    path: "/fillprofile",
+    name: "FillProfile",
+    component: FillProfile,
   },
 ];
 
